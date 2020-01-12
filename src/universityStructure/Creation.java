@@ -128,12 +128,12 @@ public class Creation {
 
     }
 
-    public static Student createOneStudent(){
+    public static Student createOneStudent() {
         Student lilit = new Student("Lilit");
         Subject english = new Subject("Englisj"), psychology = new Subject("Psychology"),
                 programming = new Subject("Programming");
         try {
-            lilit.setScores(new int[]{9,9,9});
+            lilit.setScores(new int[]{9, 9, 9});
         } catch (InvalidGradeException e) {
         }
         try {
@@ -151,6 +151,5 @@ public class Creation {
         }
         return avgMark / (double) student.getScores().length;
     }
-
 
 }

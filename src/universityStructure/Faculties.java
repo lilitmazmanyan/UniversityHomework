@@ -1,12 +1,15 @@
 package universityStructure;
 
-import exceptions.StudentsNumberException;
-
 class Faculties {
     String name;
-    void setGroups(GroupObject[] groups) throws StudentsNumberException {
-        if (groups.length == 0)
-            throw new StudentsNumberException();
+    GroupObject[] groups;
+
+    public GroupObject[] getGroups() {
+        return groups;
+    }
+
+    public void setGroups(GroupObject[] groups) {
+        this.groups = groups;
     }
 
     Faculties(String name) {

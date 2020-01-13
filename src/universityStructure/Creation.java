@@ -6,23 +6,21 @@ import exceptions.StudentsNumberException;
 
 public class Creation {
     public static void makingAll() {
-
         String[] subjectsOfIAM = new String[]{"discrete", "english", "programming"};
         String[] secondFacSubjects = new String[]{"history", "philosophy", "english"};
         String[] thirdFacSubjects = new String[]{"english", "philosophy", "programming"};
 
         //Making students with constructor, names are mandatory for every student before creating them.
         // Other Student fields have their setter/getters
-        Student s128 = createOneStudent("StudentForTesting", new int[]{8, 7, 9}, subjectsOfIAM);
-        Student s1 = createOneStudent("Mar", new int[]{6, 8, 9}, subjectsOfIAM);
-        Student s2 = createOneStudent("Sus", new int[]{4, 8, 6}, subjectsOfIAM);
+        Student s1 = createOneStudent("Mar", new int[]{6, 2, 9}, subjectsOfIAM);
+        Student s2 = createOneStudent("Sus", new int[]{4, 9, 6}, subjectsOfIAM);
         Student s3 = createOneStudent("Mark", new int[]{6, 8, 9}, subjectsOfIAM);
-        Student s4 = createOneStudent("Lus", new int[]{7, 7, 7}, secondFacSubjects);
-        Student s5 = createOneStudent("Nell", new int[]{9, 5, 9}, secondFacSubjects);
-        Student s6 = createOneStudent("Arto", new int[]{9, 9, 9}, secondFacSubjects);
-        Student s7 = createOneStudent("Lil", new int[]{9, 9, 9}, thirdFacSubjects);
-        Student s8 = createOneStudent("Koj", new int[]{9, 8, 9}, thirdFacSubjects);
-        Student s9 = createOneStudent("Liza", new int[]{8, 9, 9}, thirdFacSubjects);
+        Student s4 = createOneStudent("Lus", new int[]{6, 7, 3}, secondFacSubjects);
+        Student s5 = createOneStudent("Nell", new int[]{8, 5, 9}, secondFacSubjects);
+        Student s6 = createOneStudent("Arto", new int[]{8, 9, 9}, secondFacSubjects);
+        Student s7 = createOneStudent("Lil", new int[]{9, 7, 9}, thirdFacSubjects);
+        Student s8 = createOneStudent("Koj", new int[]{8, 8, 9}, thirdFacSubjects);
+        Student s9 = createOneStudent("Liza", new int[]{8, 2, 9}, thirdFacSubjects);
 
         Student[] studentsList = new Student[]{s1, s2, s3, s4, s5, s6, s7, s8, s9};
 
@@ -36,12 +34,8 @@ public class Creation {
         Faculties f1 = new Faculties("iam");
         Faculties f2 = new Faculties("intRel");
 
-        try {
-            f1.setGroups(hosq1);
-            f2.setGroups(hosq2);
-        } catch (StudentsNumberException ex) {
-//            System.out.println("An error occurred while making faculties. Any faculty should have at least one group");
-        }
+        f1.setGroups(hosq1);
+        f2.setGroups(hosq2);
 
         //Making 2 faculties for one university
         Faculties[] faculties = new Faculties[]{f1, f2};
@@ -53,6 +47,12 @@ public class Creation {
         } catch (Exception ex) {
             System.out.println("There was an error while making University. University should have at least one faculty");
         }
+
+        printMethods(studentsList, g1, f1);
+
+    }
+
+    public static void printMethods(Student[] studentsList, GroupObject givenGroup, Faculties givenFaculty) {
 
         //Printing average mark of every student
         for (Student student : studentsList) {
@@ -71,6 +71,15 @@ public class Creation {
                 k++;
             }
         }
+        //Printing average mark from given subject in the gropu
+        System.out.println("Average Score of group from subject is: " +
+                AverageScores.averageOfGroupFromOneSubj(givenGroup, "programming"));
+
+        //Printing Average Score from faculty of given subject
+        System.out.println("Printing average of subject of faculty " +
+                AverageScores.averageOfFacultyFromSubject(givenFaculty, "english"));
+
+
     }
 
     public static GroupObject createOneGroup(int number, Student[] studentsList) {

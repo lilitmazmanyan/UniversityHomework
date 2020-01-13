@@ -17,7 +17,6 @@ public class AverageScores {
         return avgMark;
     }
 
-
     //Methodi mej inch en chi vor nuyn usanoghin ereq angam hashvum a
     // xumb meki hamar 8+8+8+7+7+7+6+6+6
     public static double averageOfGroupFromOneSubj(GroupObject group, String subject) {
@@ -34,11 +33,21 @@ public class AverageScores {
         return mark / group.students.length;
     }
 
-    private static int defineIndex(Student student, String subject) {
+    public static double averageOfFacultyFromSubject(Faculties faculties, String subject) {
+        double mark = 0;
+        for (int i = 0; i < faculties.getGroups().length; i++) {
+            mark += averageOfGroupFromOneSubj(faculties.getGroups()[i], subject);
+        }
+        return mark / (faculties.getGroups().length);
+    }
+
+    private static int defineIndex(Student student, String subject) throws ArrayIndexOutOfBoundsException {
         int i = 0;
         while (student.subjects[i] != subject) {
-            ++i;
+            i++;
         }
         return i;
+
     }
+
 }

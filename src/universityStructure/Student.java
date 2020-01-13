@@ -6,13 +6,13 @@ import exceptions.InvalidSubjectException;
 public class Student {
     public String name;
     private int[] scores;
-    Subject[] subjects;
+    String[] subjects;
 
     public Student(String name) {
         this.name = name;
     }
 
-    void setSubjects(Subject[] subjects) throws InvalidSubjectException {
+    void setSubjects(String[] subjects) throws InvalidSubjectException {
         if (subjects == null) {
             throw new InvalidSubjectException();
         }

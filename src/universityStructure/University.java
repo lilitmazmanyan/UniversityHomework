@@ -10,8 +10,8 @@ class University {
         }
         this.faculties = faculties;
     }
-
     University(String name) {
         this.name = name;
     }
+
 }

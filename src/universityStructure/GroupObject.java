@@ -2,7 +2,7 @@ package universityStructure;
 
 import exceptions.StudentsNumberException;
 
-class Group {
+public class GroupObject {
     Student[] students;
     int numberOfGroup;
 
@@ -13,7 +13,8 @@ class Group {
 
     }
 
-    Group(int numberOfGroup) {
+    public GroupObject(int numberOfGroup) {
         this.numberOfGroup = numberOfGroup;
     }
+
 }

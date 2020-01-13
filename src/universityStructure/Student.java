@@ -30,7 +30,6 @@ public class Student {
         }
         this.scores = scores;
     }
-
     int[] getScores() {
         return this.scores;
     }

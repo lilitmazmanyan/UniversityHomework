@@ -5,7 +5,7 @@ import exceptions.InvalidSubjectException;
 import exceptions.StudentsNumberException;
 
 public class Creation {
-    public static void makingAll() {
+    public void makingAll() {
         String[] subjectsOfIAM = new String[]{"discrete", "english", "programming"};
         String[] secondFacSubjects = new String[]{"history", "philosophy", "english"};
         String[] thirdFacSubjects = new String[]{"english", "philosophy", "programming"};
@@ -53,7 +53,6 @@ public class Creation {
     }
 
     public static void printMethods(Student[] studentsList, GroupObject givenGroup, Faculties givenFaculty) {
-
         //Printing average mark of every student
         for (Student student : studentsList) {
             System.out.println("Average mark of " + student.name + " is: " + AverageScores.gpaOfStudent(student));
@@ -82,11 +81,10 @@ public class Creation {
 
     }
 
-    public static GroupObject createOneGroup(int number, Student[] studentsList) {
-        //Making student groups to pass them to make groups
+    //Making student groups to pass them to make groups
+    public GroupObject createOneGroup(int number, Student[] studentsList) {
         Student[] gr1 = studentsList;
         GroupObject group = new GroupObject(number);
-
         try {
             group.setStudents(gr1);
         } catch (StudentsNumberException ex) {
@@ -94,7 +92,7 @@ public class Creation {
         return group;
     }
 
-    public static Student createOneStudent(String name, int[] scores, String[] subjects) {
+    public Student createOneStudent(String name, int[] scores, String[] subjects) {
         Student s1 = new Student(name);
         try {
             s1.setScores(scores);

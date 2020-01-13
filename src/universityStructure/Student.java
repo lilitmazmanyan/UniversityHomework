@@ -4,11 +4,11 @@ import exceptions.InvalidGradeException;
 import exceptions.InvalidSubjectException;
 
 public class Student {
-    public String name;
+    String name;
     private int[] scores;
     String[] subjects;
 
-    public Student(String name) {
+    Student(String name) {
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class Student {
     }
 
     void setScores(int[] scores) throws InvalidGradeException {
-        if (scores.length ==0) {
+        if (scores.length == 0) {
             throw new InvalidGradeException();
         }
         for (int score : scores) {
@@ -30,6 +30,7 @@ public class Student {
         }
         this.scores = scores;
     }
+
     int[] getScores() {
         return this.scores;
     }

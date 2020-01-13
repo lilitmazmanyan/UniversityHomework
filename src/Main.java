@@ -19,9 +19,8 @@ public class Main {
 ////        Printing the average score of given subject in the group;
 //        System.out.println("Average score of your given subject in given group is: " +
 //                Math.round(AverageScores.averageOfGroupFromOneSubj(g1, "english")));
-
-    Creation.makingAll();
-
+        Creation c = new Creation();
+        c.makingAll();
     }
 
 }

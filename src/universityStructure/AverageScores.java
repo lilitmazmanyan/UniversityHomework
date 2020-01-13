@@ -3,6 +3,7 @@ package universityStructure;
 import universityStructure.Student;
 
 public class AverageScores {
+
     //This method counts the average score if the student
     public static double gpaOfStudent(Student student) {
         double avgMark = 0.0D;
@@ -17,13 +18,11 @@ public class AverageScores {
         return avgMark;
     }
 
-    //Methodi mej inch en chi vor nuyn usanoghin ereq angam hashvum a
-    // xumb meki hamar 8+8+8+7+7+7+6+6+6
+    // The output of the following method is the average mark of group from one subject
     public static double averageOfGroupFromOneSubj(GroupObject group, String subject) {
         double mark = 0;
         try {
             for (int i = 0, j = 0; i < group.students.length && j < group.students[i].getScores().length; j++, i++) {
-                // piti gtnenq usanoghi subjects stringi mej ed subjecti indexy u getScores[index]ov gumarenq
                 int k = defineIndex(group.students[i], subject);
                 mark += group.students[i].getScores()[k];
             }
@@ -33,6 +32,7 @@ public class AverageScores {
         return mark / group.students.length;
     }
 
+    //Method gives the average score of faculty from given subject
     public static double averageOfFacultyFromSubject(Faculties faculties, String subject) {
         double mark = 0;
         for (int i = 0; i < faculties.getGroups().length; i++) {
@@ -41,6 +41,7 @@ public class AverageScores {
         return mark / (faculties.getGroups().length);
     }
 
+    //Following method defines index of given subject in Student's subjects array
     private static int defineIndex(Student student, String subject) throws ArrayIndexOutOfBoundsException {
         int i = 0;
         while (student.subjects[i] != subject) {
